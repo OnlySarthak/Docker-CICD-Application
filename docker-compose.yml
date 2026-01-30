@@ -2,8 +2,8 @@ version: "3.8"
 
 services:
   backend:
-    image: onlysarthak/backend:CICD-Docker-v1
-    container_name: backend1
+    image: onlysarthak/docker-cicd-h:v1
+    container_name: frontend-And-Backend
     ports:
       - "3000:3000"
     depends_on:

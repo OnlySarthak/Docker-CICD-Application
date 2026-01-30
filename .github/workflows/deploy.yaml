@@ -23,7 +23,7 @@ jobs:
           context: .
           target: prod  # This uses the 'prod' stage from your Dockerfile
           push: true
-          tags: onlysarthak/backend:latest # Using 'latest' simplifies the Pull step
+          tags: onlysarthak/docker-cicd-h:v1 # Using 'latest' simplifies the Pull step
 
   deploy-to-ec2:
     needs: build-and-push
@@ -37,7 +37,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             # Navigate to where your docker-compose.yml lives on EC2
-            cd ~/app-directory 
+            cd ~/docker-cicd-app 
             
             # Pull the new image from DockerHub
             docker compose pull

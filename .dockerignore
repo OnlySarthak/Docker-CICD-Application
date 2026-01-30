@@ -1,6 +1,12 @@
-.Dockerfile
+.dockerfile
+.git/
+.github/
 .gitignore
 README.md
 Dockerfile
 docker-compose.yml
+node_modules/
+.env
+npm-debug.log*
+
 

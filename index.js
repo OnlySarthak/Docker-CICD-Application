@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-
-const mongoURI = 'mongodb://mongodb:27017/mydatabase';
+const connectDB = require('./database');
 
 app.use(express.static('public')); 
 app.use(express.json());
@@ -30,12 +29,12 @@ app.post('/add', async (req, res) => {
   }
 });
 
-mongoose.connect(mongoURI)
+connectDB()
 .then(() => {
-  console.log('✅ Connected to MongoDB Container');
   app.listen(3000, "0.0.0.0", () => {
     console.log('🚀 Server is running on port 3000');
   });
 }).catch(err => {
   console.error('❌ Failed to connect to MongoDB', err);
 });
+

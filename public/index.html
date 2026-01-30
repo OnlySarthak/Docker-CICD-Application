@@ -1,17 +1,8 @@
 <html>
 	<head>
 		<title>
-			Hello world
+			Docker with CICD app
 		</title>
-	</head
-
-	<body>
-		<h1>Hello from a website</h1>
-		<br> <br>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Docker Mongo Test</title>
     <style>
         body { font-family: sans-serif; padding: 50px; text-align: center; }
         input { padding: 10px; width: 250px; }
@@ -23,7 +14,8 @@
     <h1>Hello from a Dockerized Website</h1>
     <p>Type something to save it to the MongoDB Container:</p>
     
-    <input type="text" id="userInput" placeholder="Enter some text...">
+    <input type="text" id="userInput" placeholder="Enter some text..."
+	onfocus="document.getElementById('status').innerText = '';">
     <button onclick="sendData()">Send to Mongo</button>
 
     <div id="status"></div>
