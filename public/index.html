@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>
+			Hello world
+		</title>
+	</head
+
+	<body>
+		<h1>Hello from a website</h1>
+		<br> <br>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker Mongo Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 50px; text-align: center; }
+        input { padding: 10px; width: 250px; }
+        button { padding: 10px 20px; cursor: pointer; background: #24292e; color: white; border: none; }
+        #status { margin-top: 20px; color: green; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Hello from a Dockerized Website</h1>
+    <p>Type something to save it to the MongoDB Container:</p>
+    
+    <input type="text" id="userInput" placeholder="Enter some text...">
+    <button onclick="sendData()">Send to Mongo</button>
+
+    <div id="status"></div>
+
+    <script>
+        async function sendData() {
+            const textValue = document.getElementById('userInput').value;
+            const statusDiv = document.getElementById('status');
+
+            if (!textValue) return alert("Please type something!");
+
+            try {
+                const response = await fetch('/add', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: textValue })
+                });
+
+                if (response.ok) {
+                    statusDiv.innerText = "✓ Successfully saved to MongoDB!";
+                    document.getElementById('userInput').value = ""; // Clear input
+                } else {
+                    statusDiv.innerText = "❌ Error saving data.";
+                }
+            } catch (err) {
+                statusDiv.innerText = "❌ Could not connect to backend.";
+                console.error(err);
+            }
+        }
+    </script>
+</body>
+</html>
+		<b>I want to be exposed via a container</b>
+	</body>
+
+</html>
+
+

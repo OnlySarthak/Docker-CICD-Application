@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    image: onlysarthak/backend:CICD-Docker-v1
+    container_name: backend1
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongodb
+    networks:
+      - app_network
+    restart: on-failure:2
+
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - app_network
+    restart: on-failure:2
+
+volumes:
+  mongo_data:
+
+networks:
+  app_network:
+    driver: bridge
